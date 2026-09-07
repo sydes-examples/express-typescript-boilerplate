@@ -18,6 +18,5 @@ jobs:
     uses: sydes-examples/.github/.github/workflows/sydes-verify.yml@main
     with:
       repo_alias: app
-      sydes_ref: calibration/ts-decorator-routes
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
