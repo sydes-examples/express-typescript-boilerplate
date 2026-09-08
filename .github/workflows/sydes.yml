@@ -18,6 +18,6 @@ jobs:
     uses: sydes-examples/.github/.github/workflows/sydes-verify.yml@main
     with:
       repo_alias: app
-      sydes_ref: b779450bc3912068b3be8ad9793b74ccf6222d9b
+      sydes_ref: d0afa349d385c29a37b9489c37dc7c477490fad8
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
