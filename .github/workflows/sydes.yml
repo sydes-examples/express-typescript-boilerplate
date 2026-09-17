@@ -21,7 +21,5 @@ jobs:
       model: openai:gpt-5.6-sol
       recovery_route_context: true
       recovery_graph_path_search: true
-      run_tests: true
-      node_version: "14"
     secrets:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
