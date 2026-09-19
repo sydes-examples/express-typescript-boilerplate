@@ -4,6 +4,7 @@ import uuid from 'uuid';
 
 import { EventDispatcher, EventDispatcherInterface } from '../../decorators/EventDispatcher';
 import { Logger, LoggerInterface } from '../../decorators/Logger';
+import { InvalidPetAgeError } from '../errors/InvalidPetAgeError';
 import { Pet } from '../models/Pet';
 import { User } from '../models/User';
 import { PetRepository } from '../repositories/PetRepository';
@@ -39,6 +40,9 @@ export class PetService {
 
     public async create(pet: Pet): Promise<Pet> {
         this.log.info('Create a new pet => ', pet.toString());
+        if (pet.age <= 0) {
+            throw new InvalidPetAgeError();
+        }
         pet.id = uuid.v1();
         const newPet = await this.petRepository.save(pet);
         this.eventDispatcher.dispatch(events.pet.created, newPet);
